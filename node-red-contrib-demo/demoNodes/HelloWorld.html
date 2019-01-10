@@ -1,0 +1,44 @@
+<script type="text/javascript">
+    RED.nodes.registerType('Hello World',{
+        category: 'Demo',
+        color: '#ffaaaa',
+        defaults: {
+            name: {value:""},
+			bank:{value:""}
+        },
+        inputs:1,
+        outputs:8,
+        icon: "face.png",
+        label: function() {
+            return this.name||"Hello World";
+        }
+    });
+</script>
+<script type="text/x-red" data-template-name="Hello World">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+	
+	<!--
+    <div class="form-row">
+        <label for="node-input-topic"><i class="icon-tag"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Topic">
+    </div>
+	-->
+	
+	<div class="form-row">
+        <label for="node-input-bank"><i class="icon-tag"></i> Bank:</label>
+        <select value="" id="node-input-bank" placeholder="bank">
+            <option value=""disabled selected>Select PCF8575 bank letter</option>
+			<option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+        </select>
+    </div>
+</script>
+<script type="text/x-red" data-help-name="Hello World">
+    <p>A node that increments every time a new message is received and sends Hello World in return.<br/>
+    </p>
+</script>
