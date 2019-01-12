@@ -7,7 +7,16 @@ module.exports = function(RED) {
         var node = this;
 
         this.on('input', function(msg) 	{
-            
+            			
+			msg1={};
+			msg2={};
+			msg3={};
+			msg4={};
+			msg5={};
+			msg6={};
+			msg7={};
+			msg8={};
+			
 			var slovo = msg.payload.substr(0,1);
 			if (slovo == node.bank)
 			{	
@@ -20,18 +29,20 @@ module.exports = function(RED) {
 			var res7 = msg.payload.substr(10, 1);
 			var res8 = msg.payload.substr(9, 1);
 			
-			node.send([res1,res2,res3,res4,res5,res6,res7,res8]);
-			}
-            
-            
+			msg1.payload=res1;
+			msg2.payload=res2;
+			msg3.payload=res3;
+			msg4.payload=res4;
+			msg5.payload=res5;
+			msg6.payload=res6;
+			msg7.payload=res7;
+			msg8.payload=res8;
 			
-										}
-		
-				);
-        
-    }
-	
-    RED.nodes.registerType("Hello World",helloWorld);
-	
+			node.send([msg1,msg2,msg3,msg4,msg5,msg6,msg7,msg8]);
+				}
+			}
+		);
+	}
+	RED.nodes.registerType("Hello World",helloWorld);
 };
 
